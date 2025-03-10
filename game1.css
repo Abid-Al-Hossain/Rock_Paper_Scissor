@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: rgb(190, 223, 249);
+}
+
+h1 {
+    background-color: #081b31;
+    color: #fff;
+    height: 6rem;
+    line-height: 6rem;
+    font-size: 3vw; /* Responsive text */
+}
+
+/* New container for each choice item */
+.choice-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Updated .choices now holds the grouped items */
+.choices {
+    position: relative;
+    top: -2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+}
+
+/* Keep your existing choice styles (no changes to animations) */
+.choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8.33vw;
+    width: 8.33vw;
+    border-radius: 50%;
+}
+
+.choice:hover {
+    cursor: pointer;
+    background-color: red;  
+    transition-duration: .3s;  
+}
+
+.choices img {
+    height: 7.64vw;
+    width: 7.64vw;
+    object-fit: cover;
+    border-radius: 50%;
+    animation-name: ani;
+    animation-duration: .4s;
+}
+
+/* New label style to align text under each image */
+.choice-label {
+    margin-top: 0.5rem;
+    font-size: 1.8rem;
+    color: #081b31;
+}
+
+.choice1, .choice2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7.64vw;
+    width: 7.64vw;
+    border-radius: 50%;
+    background-color: rgb(166, 162, 162);
+}
+
+.score img {
+    height: 7.64vw;
+    width: 7.64vw;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+@keyframes ani2 {
+    0% {
+        height: 0px;
+        width: 0px;
+    }
+    100% {
+        height: 7.64vw;
+        width: 7.64vw;
+    }
+}
+
+@keyframes ani {
+    0% {
+        height: 0px;
+        width: 0px;
+    }
+    80% {
+        height: 9.72vw;
+        width: 9.72vw; 
+    }
+    100% {
+        height: 7.64vw;
+        width: 7.64vw;
+    }
+}
+
+@keyframes op {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.score-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem; /* Responsive font */
+    gap: 5rem;
+    animation-name: op;
+    animation-duration: .6s;
+    margin-top: 5rem;
+    position: relative;
+    top: -5rem;
+}
+
+#user-score, #comp-score {
+    font-size: 4rem; /* Responsive font */
+}
+
+.msg-con {
+    margin-top: 2rem;
+    animation-name: op;
+    animation-duration: .5s;
+}
+
+#msg {
+    position: relative;
+    top: -5rem;
+    background-color: #081b31;
+    color: #fff;
+    font-size: 2rem; /* Responsive font */
+    display: inline;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 5vw; /* Adjusted font size for smaller screens */
+        height: 5rem;
+        line-height: 5rem;
+    }
+
+    .choices img, .score img {
+        height: 13.75vw;
+        width: 13.75vw; 
+        max-height: 80px;
+        max-width: 80px;
+    }
+
+    .choices {
+        top: 1rem;
+        gap: 1.8rem;
+    }
+    
+    .choice {
+        height: 15vw;
+        width: 15vw;
+        max-height: 80px;
+        max-width: 80px;
+    }
+    
+    .choice1, .choice2 {
+        height: 13.75vw;
+        width: 13.75vw;
+        max-height: 80px;
+        max-width: 80px;
+    }
+    
+    @keyframes ani2 {
+        0% {
+            height: 0px;
+            width: 0px;
+        }
+        100% {
+            height: 13.75vw;
+            width: 13.75vw;
+        }
+    }
+    
+    @keyframes ani {
+        0% {
+            height: 0px;
+            width: 0px;
+        }
+        80% {
+            height: 17.5vw;
+            width: 17.5vw; 
+        }
+        100% {
+            height: 13.75vw;
+            width: 13.75vw;
+        }
+    }
+    
+    .choice-label {
+        font-size: 1rem;
+    }
+    
+    .score-board {
+        top: -2rem;
+        gap: 2rem;
+        font-size: 1.5rem;
+    }
+    
+    #user-score, #comp-score {
+        font-size: 2.5rem;
+    }
+    
+    #msg {
+        top: -2rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 1100px) {
+    h1 {
+        font-size: 5vw; /* Adjusted font size for smaller screens */
+        height: 5rem;
+        line-height: 5rem;
+    }
+
+    .choices img, .score img {
+        height: 13.75vw;
+        width: 13.75vw; 
+    }
+
+    .choices {
+        top: 1rem;
+        gap: 1.8rem;
+    }
+    
+    .choice {
+        height: 15vw;
+        width: 15vw;
+    }
+    
+    .choice-label {
+        font-size: 1rem;
+    }
+    
+    .choice1, .choice2 {
+        height: 13.75vw;
+        width: 13.75vw;
+    }
+    
+    @keyframes ani2 {
+        0% {
+            height: 0px;
+            width: 0px;
+        }
+        100% {
+            height: 13.75vw;
+            width: 13.75vw;
+        }
+    }
+    
+    @keyframes ani {
+        0% {
+            height: 0px;
+            width: 0px;
+        }
+        80% {
+            height: 17.5vw;
+            width: 17.5vw; 
+        }
+        100% {
+            height: 13.75vw;
+            width: 13.75vw;
+        }
+    }
+    
+    .score-board {
+        top: -2rem;
+        gap: 2rem;
+        font-size: 1.5rem;
+    }
+    
+    #user-score, #comp-score {
+        font-size: 2.5rem;
+    }
+    
+    #msg {
+        top: -2rem;
+        font-size: 1.2rem;
+    }
+}
