@@ -1,29 +1,31 @@
 # Rock Paper Scissor
 
-A simple browser-based Rock Paper Scissor game built with HTML, CSS, and JavaScript. The player chooses Rock, Paper, or Scissors, the computer picks a random move, and the score updates instantly after each round.
+A simple browser game built with HTML, CSS, and JavaScript. You choose Rock, Paper, or Scissors, the computer picks a random move, and the score updates after every round.
 
 ## Project Overview
 
-This project is a lightweight front-end game that runs entirely in the browser. It uses:
+This is a static front-end project. It does not require any package installation, build step, or backend server.
 
-- `index.html` for the page structure and GitHub Pages entry point
-- `styles.css` for styling, layout, and responsive behavior
-- `script.js` for the game logic, score updates, keyboard shortcuts, and sound effects
-- `image/` for move icons
-- `sounds/` for click and move audio
+Current project files:
+
+- `index.html` as the main page and GitHub Pages entry point
+- `styles.css` for the visual design and layout
+- `script.js` for game logic, score updates, keyboard controls, and sound playback
+- `image/` for the move images
+- `sounds/` for the game audio files
 
 ## Features
 
-- Click-based gameplay with Rock, Paper, and Scissors options
-- Keyboard shortcuts:
+- Click Rock, Paper, or Scissors to play
+- Keyboard controls:
   - `R` for Rock
   - `P` for Paper
   - `S` for Scissors
-- Random computer move generation
-- Live score tracking for the player and the computer
-- Animated move previews
-- Sound effects for interactions
-- Responsive layout for desktop, tablet, and mobile screens
+- Random computer choice each round
+- Live score tracking
+- Result message after each move
+- Sound effects for user input
+- Classic single-page layout
 
 ## Project Structure
 
@@ -32,6 +34,8 @@ Rock_Paper_Scissor/
 |-- index.html
 |-- styles.css
 |-- script.js
+|-- README.md
+|-- .nojekyll
 |-- image/
 |   |-- rock.png
 |   |-- paper.png
@@ -48,59 +52,53 @@ Rock_Paper_Scissor/
 
 ### Option 1: Download ZIP from GitHub
 
-1. Open the repository in your browser:
+1. Open the repository:
    `https://github.com/Abid-Al-Hossain/Rock_Paper_Scissor`
 2. Click `Code`.
 3. Click `Download ZIP`.
-4. Extract the ZIP file to any folder on your computer.
+4. Extract the ZIP file.
 
 ### Option 2: Clone with Git
 
-Run this command in your terminal:
-
 ```bash
 git clone https://github.com/Abid-Al-Hossain/Rock_Paper_Scissor.git
-```
-
-Then move into the project folder:
-
-```bash
 cd Rock_Paper_Scissor
 ```
 
 ## How To Run The Project
 
-This is a static front-end project, so it does not need `npm install` or a backend server.
+This project can run directly in the browser.
 
-### Recommended: Run with Live Server
-
-1. Open the project folder in Visual Studio Code.
-2. Install the `Live Server` extension if needed.
-3. Right-click `index.html`.
-4. Select `Open with Live Server`.
-
-### Alternative: Open the HTML file directly
+### Option 1: Open the file directly
 
 1. Open the project folder.
 2. Double-click `index.html`.
-3. The game will start in your default browser.
+3. The game will open in your browser.
 
-Note: Running through Live Server is usually better for local development because browser asset loading is more predictable.
+### Option 2: Use Live Server in VS Code
+
+1. Open the folder in Visual Studio Code.
+2. Install the `Live Server` extension if needed.
+3. Right-click `index.html`.
+4. Choose `Open with Live Server`.
 
 ## How To Play
 
 1. Open the game in your browser.
-2. Select a move by clicking one of the three buttons.
+2. Click one of the three choices:
+   - Rock
+   - Paper
+   - Scissors
 3. Or press `R`, `P`, or `S` on your keyboard.
-4. The computer will choose a random move.
-5. The result message and scores will update automatically.
+4. The computer picks its move automatically.
+5. The message area shows the result and the score updates.
 
-## Rules
+## Game Rules
 
 - Rock beats Scissors
 - Scissors beats Paper
 - Paper beats Rock
-- If both choices are the same, the round is a draw
+- Matching choices result in a draw
 
 ## Technologies Used
 
@@ -110,14 +108,9 @@ Note: Running through Live Server is usually better for local development becaus
 
 ## GitHub Pages Deployment
 
-This project is now structured for GitHub Pages deployment.
+This repository is ready for GitHub Pages deployment.
 
-### Required files
-
-- `index.html` at the repository root
-- Relative asset paths such as `./styles.css`, `./script.js`, `./image/...`, and `./sounds/...`
-
-### How to publish on GitHub Pages
+### Publish Steps
 
 1. Open the repository on GitHub.
 2. Go to `Settings`.
@@ -127,14 +120,5 @@ This project is now structured for GitHub Pages deployment.
    - `Branch`: `master`
    - `Folder`: `/ (root)`
 5. Save the settings.
-6. Wait for GitHub Pages to publish the site.
 
-After publishing, the game will be available from the repository's GitHub Pages URL.
-
-## Recent Improvements
-
-- Improved spacing and layout consistency across screen sizes
-- Reduced layout shifts caused by viewport-based sizing
-- Refined the scoreboard and message areas for smaller devices
-- Added a detailed README with setup and usage instructions
-- Renamed the main files for direct GitHub Pages deployment
+GitHub Pages will then publish the site from `index.html` in the repository root.
