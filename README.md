@@ -6,9 +6,9 @@ A simple browser-based Rock Paper Scissor game built with HTML, CSS, and JavaScr
 
 This project is a lightweight front-end game that runs entirely in the browser. It uses:
 
-- `game1.html` for the page structure
-- `game1.css` for styling, layout, and responsive behavior
-- `game1.js` for the game logic, score updates, keyboard shortcuts, and sound effects
+- `index.html` for the page structure and GitHub Pages entry point
+- `styles.css` for styling, layout, and responsive behavior
+- `script.js` for the game logic, score updates, keyboard shortcuts, and sound effects
 - `image/` for move icons
 - `sounds/` for click and move audio
 
@@ -29,9 +29,9 @@ This project is a lightweight front-end game that runs entirely in the browser. 
 
 ```text
 Rock_Paper_Scissor/
-|-- game1.html
-|-- game1.css
-|-- game1.js
+|-- index.html
+|-- styles.css
+|-- script.js
 |-- image/
 |   |-- rock.png
 |   |-- paper.png
@@ -76,13 +76,13 @@ This is a static front-end project, so it does not need `npm install` or a backe
 
 1. Open the project folder in Visual Studio Code.
 2. Install the `Live Server` extension if needed.
-3. Right-click `game1.html`.
+3. Right-click `index.html`.
 4. Select `Open with Live Server`.
 
 ### Alternative: Open the HTML file directly
 
 1. Open the project folder.
-2. Double-click `game1.html`.
+2. Double-click `index.html`.
 3. The game will start in your default browser.
 
 Note: Running through Live Server is usually better for local development because browser asset loading is more predictable.
@@ -108,9 +108,33 @@ Note: Running through Live Server is usually better for local development becaus
 - CSS3
 - Vanilla JavaScript
 
+## GitHub Pages Deployment
+
+This project is now structured for GitHub Pages deployment.
+
+### Required files
+
+- `index.html` at the repository root
+- Relative asset paths such as `./styles.css`, `./script.js`, `./image/...`, and `./sounds/...`
+
+### How to publish on GitHub Pages
+
+1. Open the repository on GitHub.
+2. Go to `Settings`.
+3. Open `Pages`.
+4. Under `Build and deployment`, choose:
+   - `Source`: `Deploy from a branch`
+   - `Branch`: `master`
+   - `Folder`: `/ (root)`
+5. Save the settings.
+6. Wait for GitHub Pages to publish the site.
+
+After publishing, the game will be available from the repository's GitHub Pages URL.
+
 ## Recent Improvements
 
 - Improved spacing and layout consistency across screen sizes
 - Reduced layout shifts caused by viewport-based sizing
 - Refined the scoreboard and message areas for smaller devices
 - Added a detailed README with setup and usage instructions
+- Renamed the main files for direct GitHub Pages deployment
