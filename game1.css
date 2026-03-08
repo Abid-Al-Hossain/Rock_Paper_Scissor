@@ -1,309 +1,239 @@
+:root {
+    --bg-start: #dbeeff;
+    --bg-end: #c0dcff;
+    --panel-bg: rgba(255, 255, 255, 0.78);
+    --panel-border: rgba(8, 27, 49, 0.12);
+    --text-main: #081b31;
+    --shadow: 0 18px 45px rgba(8, 27, 49, 0.12);
+    --choice-size: clamp(6.25rem, 18vw, 10rem);
+    --score-choice-size: clamp(4.75rem, 14vw, 7rem);
+}
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     text-align: center;
     font-family: sans-serif;
 }
 
 body {
-    background-color: rgb(190, 223, 249);
+    min-height: 100vh;
+    padding: clamp(1rem, 3vw, 2rem);
+    background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+    color: var(--text-main);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.game-shell {
+    width: min(100%, 70rem);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.hero {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border-radius: 1.75rem;
+    background: linear-gradient(180deg, #081b31, #12375f);
+    box-shadow: var(--shadow);
 }
 
 h1 {
-    background-color: #081b31;
     color: #fff;
-    height: 6rem;
-    line-height: 6rem;
-    font-size: 3vw; /* Responsive text */
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
 }
 
-/* New container for each choice item */
+.hero-text {
+    margin-top: 0.85rem;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    line-height: 1.6;
+}
+
+.choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+    align-items: start;
+}
+
 .choice-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0.85rem;
 }
 
-/* Updated .choices now holds the grouped items */
-.choices {
-    position: relative;
-    top: -2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
-    margin-top: 5rem;
-    flex-wrap: wrap;
-}
-
-/* Keep your existing choice styles (no changes to animations) */
 .choice {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 8.33vw;
-    width: 8.33vw;
+    width: min(100%, var(--choice-size));
+    aspect-ratio: 1;
+    margin: 0 auto;
+    border: 0;
     border-radius: 50%;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
-.choice:hover {
-    cursor: pointer;
-    background-color: red;  
-    transition-duration: .3s;  
+.choice:hover,
+.choice:focus-visible {
+    background-color: #ffd8d8;
+    box-shadow: 0 20px 35px rgba(194, 50, 50, 0.18);
+    transform: translateY(-0.3rem);
+    outline: none;
 }
 
 .choices img {
-    height: 7.64vw;
-    width: 7.64vw;
+    width: 78%;
+    height: 78%;
     object-fit: cover;
     border-radius: 50%;
     animation-name: ani;
-    animation-duration: .4s;
+    animation-duration: 0.4s;
 }
 
-/* New label style to align text under each image */
 .choice-label {
-    margin-top: 0.5rem;
-    font-size: 1.8rem;
-    color: #081b31;
+    font-size: clamp(1rem, 2.2vw, 1.4rem);
+    font-weight: 700;
+    color: var(--text-main);
 }
 
-.choice1, .choice2 {
+.score-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+    animation-name: op;
+    animation-duration: 0.6s;
+}
+
+.score {
+    padding: 1.5rem 1rem;
+    border: 1px solid var(--panel-border);
+    border-radius: 1.5rem;
+    background: var(--panel-bg);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.choice1,
+.choice2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 7.64vw;
-    width: 7.64vw;
+    width: var(--score-choice-size);
+    aspect-ratio: 1;
     border-radius: 50%;
     background-color: rgb(166, 162, 162);
 }
 
 .score img {
-    height: 7.64vw;
-    width: 7.64vw;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 50%;
 }
 
+#user-score,
+#comp-score {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+}
+
+.score-label {
+    font-size: clamp(1rem, 2.6vw, 1.35rem);
+    font-weight: 700;
+}
+
+.msg-con {
+    display: flex;
+    justify-content: center;
+    animation-name: op;
+    animation-duration: 0.5s;
+}
+
+#msg {
+    width: min(100%, 38rem);
+    min-height: 4.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    background-color: #081b31;
+    color: #fff;
+    font-size: clamp(1.05rem, 2.4vw, 1.6rem);
+    line-height: 1.4;
+    box-shadow: var(--shadow);
+}
 
 @keyframes ani2 {
     0% {
-        height: 0px;
-        width: 0px;
+        transform: scale(0);
     }
     100% {
-        height: 7.64vw;
-        width: 7.64vw;
+        transform: scale(1);
     }
 }
 
 @keyframes ani {
     0% {
-        height: 0px;
-        width: 0px;
+        transform: scale(0);
     }
     80% {
-        height: 9.72vw;
-        width: 9.72vw; 
+        transform: scale(1.12);
     }
     100% {
-        height: 7.64vw;
-        width: 7.64vw;
+        transform: scale(1);
     }
 }
 
 @keyframes op {
     from {
         opacity: 0;
+        transform: translateY(0.75rem);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
-.score-board {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem; /* Responsive font */
-    gap: 5rem;
-    animation-name: op;
-    animation-duration: .6s;
-    margin-top: 5rem;
-    position: relative;
-    top: -5rem;
-}
-
-#user-score, #comp-score {
-    font-size: 4rem; /* Responsive font */
-}
-
-.msg-con {
-    margin-top: 2rem;
-    animation-name: op;
-    animation-duration: .5s;
-}
-
-#msg {
-    position: relative;
-    top: -5rem;
-    background-color: #081b31;
-    color: #fff;
-    font-size: 2rem; /* Responsive font */
-    display: inline;
-    padding: 1rem;
-    border-radius: 1rem;
-}
-
-/* Responsive styles for smaller screens */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 5vw; /* Adjusted font size for smaller screens */
-        height: 5rem;
-        line-height: 5rem;
+@media (max-width: 40rem) {
+    body {
+        padding-inline: 0.85rem;
     }
 
-    .choices img, .score img {
-        height: 13.75vw;
-        width: 13.75vw; 
-        max-height: 80px;
-        max-width: 80px;
+    .hero {
+        border-radius: 1.25rem;
     }
 
     .choices {
-        top: 1rem;
-        gap: 1.8rem;
+        grid-template-columns: 1fr;
     }
-    
+
     .choice {
-        height: 15vw;
-        width: 15vw;
-        max-height: 80px;
-        max-width: 80px;
+        width: min(100%, 8.75rem);
     }
-    
-    .choice1, .choice2 {
-        height: 13.75vw;
-        width: 13.75vw;
-        max-height: 80px;
-        max-width: 80px;
-    }
-    
-    @keyframes ani2 {
-        0% {
-            height: 0px;
-            width: 0px;
-        }
-        100% {
-            height: 13.75vw;
-            width: 13.75vw;
-        }
-    }
-    
-    @keyframes ani {
-        0% {
-            height: 0px;
-            width: 0px;
-        }
-        80% {
-            height: 17.5vw;
-            width: 17.5vw; 
-        }
-        100% {
-            height: 13.75vw;
-            width: 13.75vw;
-        }
-    }
-    
-    .choice-label {
-        font-size: 1rem;
-    }
-    
+
     .score-board {
-        top: -2rem;
-        gap: 2rem;
-        font-size: 1.5rem;
+        grid-template-columns: 1fr;
     }
-    
-    #user-score, #comp-score {
-        font-size: 2.5rem;
-    }
-    
+
     #msg {
-        top: -2rem;
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 1100px) {
-    h1 {
-        font-size: 5vw; /* Adjusted font size for smaller screens */
-        height: 5rem;
-        line-height: 5rem;
-    }
-
-    .choices img, .score img {
-        height: 13.75vw;
-        width: 13.75vw; 
-    }
-
-    .choices {
-        top: 1rem;
-        gap: 1.8rem;
-    }
-    
-    .choice {
-        height: 15vw;
-        width: 15vw;
-    }
-    
-    .choice-label {
-        font-size: 1rem;
-    }
-    
-    .choice1, .choice2 {
-        height: 13.75vw;
-        width: 13.75vw;
-    }
-    
-    @keyframes ani2 {
-        0% {
-            height: 0px;
-            width: 0px;
-        }
-        100% {
-            height: 13.75vw;
-            width: 13.75vw;
-        }
-    }
-    
-    @keyframes ani {
-        0% {
-            height: 0px;
-            width: 0px;
-        }
-        80% {
-            height: 17.5vw;
-            width: 17.5vw; 
-        }
-        100% {
-            height: 13.75vw;
-            width: 13.75vw;
-        }
-    }
-    
-    .score-board {
-        top: -2rem;
-        gap: 2rem;
-        font-size: 1.5rem;
-    }
-    
-    #user-score, #comp-score {
-        font-size: 2.5rem;
-    }
-    
-    #msg {
-        top: -2rem;
-        font-size: 1.2rem;
+        min-height: 5rem;
     }
 }
